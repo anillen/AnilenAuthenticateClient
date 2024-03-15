@@ -1,0 +1,12 @@
+.container{
+    margin:0.5rem 25px;
+    display: flex;
+    justify-content: space-between;
+    width: calc(100% - 50px);
+}
+.buttonsContainer{
+    display: flex;
+}
+.searchInput{
+    padding: 0.2rem;
+}

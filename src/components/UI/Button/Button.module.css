@@ -1,0 +1,17 @@
+.button{
+    border:2px solid rgb(89, 89, 89);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    height: 25px;
+    padding: 0.2rem;
+    overflow: hidden;
+}
+
+.button:hover{
+    background-color:rgb(100, 100, 100);
+    color:aliceblue;
+}
+
+.button:active{
+    background-color:rgb(120, 120, 120);
+}

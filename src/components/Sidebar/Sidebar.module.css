@@ -1,0 +1,41 @@
+.sidebar{
+    background-color: rgb(83, 83, 83);
+    grid-column: sidebar;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.sidebar .title{
+    color:aliceblue;
+    padding: 0.5rem;
+    text-align: center;
+}
+.sidebar .nav{
+    display: grid;
+    margin-bottom: 0.5rem;
+}
+.sidebar .link:hover{
+    background-color: aliceblue;
+    color: rgb(83, 83, 83);
+}
+.sidebar .link:active{
+    background-color: rgb(194, 202, 208);
+}
+.sidebar .link{
+    margin: 0.1rem;
+    border:2px solid aliceblue;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease; 
+    color: aliceblue;
+    text-decoration: none;
+    font-size: 20px;
+    padding-left: 0.2rem;
+    width: auto;
+    text-align: center;
+}
+.sidebar .active{
+    background-color: aliceblue;
+    color: rgb(83, 83, 83);
+}

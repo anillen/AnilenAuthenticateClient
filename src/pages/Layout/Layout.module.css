@@ -1,0 +1,10 @@
+.layout{
+    display: grid;
+    grid-template-columns: [sidebar] 1fr [columnContent]6fr;
+}
+.content{
+    grid-column: columnContent;
+    display: grid;
+    grid-template-rows: 5% auto;
+    background-color: rgb(228, 228, 228);
+}
