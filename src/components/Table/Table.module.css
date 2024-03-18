@@ -23,12 +23,12 @@
     transition: all 0.2s ease;
     cursor: pointer;
 }
-.smallTable tr:hover{
+.smallTable .tr_hovered:hover{
     background-color:rgb(100, 100, 100);
 }
-.smallTable tr:active{
+.smallTable .tr_hovered:active{
     background-color:rgb(120, 120, 120);
 }
-.smallTable tr:hover > td{
+.smallTable .tr_hovered:hover > td{
     color:aliceblue;
 }

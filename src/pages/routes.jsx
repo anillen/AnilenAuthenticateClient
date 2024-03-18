@@ -6,6 +6,7 @@ import Permissions from "./Permissions/Permissions"
 import Settings from "./Settings/Settings"
 import ActiveSessions from "./ActiveSessions/ActiveSessions"
 import Home from "./Home/Home";
+import Logout from "./Logout/Logout";
 
 export const routes = [
     {
@@ -40,17 +41,17 @@ export const routes = [
         },
         {
           path: "/logout",
-          element: <h1>Logout</h1>,
+          element: <Logout/>,
           displayName: "Logout",
         },
       ]
     },
     {
       path:"/login",
+      errorElement:<ErrorPage/>,
       element:<Login/>
     }
   ]
-
   export function getSidebarLinks()
   {
     return routes.find((element)=>{

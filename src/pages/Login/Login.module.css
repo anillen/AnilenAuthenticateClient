@@ -1,0 +1,45 @@
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.login_card{
+    height: 7rem;
+    width: 25rem;
+    background-color: rgb(228, 228, 228);
+    border-radius: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.3rem;
+    animation: onShow 1s forwards;
+}
+.form_control{
+    display: flex;
+    justify-content: space-between;
+}
+button{
+    margin-left: 0.3rem;
+    border-radius: 10px;
+}
+
+h2{
+    margin-right: 0.3rem;
+}
+
+
+@keyframes onShow{
+    0%{
+        opacity: 0;
+        transform: translateX(+200px);
+    }
+    50%{
+        opacity: 0.5;
+    }
+    100%{
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
