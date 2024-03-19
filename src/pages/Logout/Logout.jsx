@@ -7,6 +7,8 @@ export default function Logout() {
   const navigate = useNavigate();
 
   useEffect(() => {
+    localStorage.removeItem("access_token");
+    localStorage.removeItem("access_token_expires");
     authenticateContext.setIsAuthenticate(false);
     navigate("/login");
   }, []);

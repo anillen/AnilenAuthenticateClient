@@ -4,7 +4,7 @@ import Button from "../../components/UI/Button/Button";
 import Input from "../../components/UI/Input/Input";
 
 
-export default function PasswordForm({ submitHandler }) {
+export default function PasswordForm({ submitHandler, loginData, setLoginData }) {
   const [value, setValue] = useState("");
 
   const changeInputHandler = (e) => {
@@ -13,12 +13,14 @@ export default function PasswordForm({ submitHandler }) {
 
   return (
     <form className={styles.login_card} onSubmit={submitHandler}>
-      <h3>Enter password:</h3>
       <div className={styles.form_control}>
+      <h3>Enter password:</h3>
         <Input
           name="password"
-          value={value}
-          onChange={changeInputHandler}
+          value={loginData.password}
+          onChange={(e)=>{
+            setLoginData({...loginData,password:e.target.value})
+          }}
           type="password"
           autoFocus={true}
           autoComplete="on"

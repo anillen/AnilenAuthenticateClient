@@ -8,13 +8,12 @@ import { useEffect } from "react";
 export function Layout() {
   const authenticateContext = useAuthenticate();
   const navigate = useNavigate();
-
+  
   useEffect(()=>{
     if(!authenticateContext.isAuthenticate){
       navigate('/login');
     }
     console.debug(`[Layout] Authorise: ${authenticateContext.isAuthenticate}`);
-
   },[authenticateContext.isAuthenticate]);
   
   return (

@@ -7,6 +7,7 @@ import Settings from "./Settings/Settings"
 import ActiveSessions from "./ActiveSessions/ActiveSessions"
 import Home from "./Home/Home";
 import Logout from "./Logout/Logout";
+import UserGroups from "./UserGroups/UserGroups";
 
 export const routes = [
     {
@@ -23,6 +24,11 @@ export const routes = [
           path: "/users",
           element: <Users />,
           displayName: "Users",
+        },
+        {
+          path: "/usergroups",
+          element: <UserGroups />,
+          displayName: "UserGroups",
         },
         {
           path: "/permissions",

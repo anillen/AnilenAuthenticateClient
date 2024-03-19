@@ -3,6 +3,7 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
+    flex-direction: column;
 }
 
 .login_card{
@@ -11,21 +12,35 @@
     background-color: rgb(228, 228, 228);
     border-radius: 15px;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    padding: 0.3rem;
     animation: onShow 1s forwards;
+    flex-direction: column;
 }
+
+.login_card p{
+    margin-top: 0.3rem;
+    color: red;
+    font-size: 13px;
+}
+
+
 .form_control{
     display: flex;
     justify-content: space-between;
 }
-button{
+
+.form_control button{
     margin-left: 0.3rem;
     border-radius: 10px;
+    font-size: 14px;
+}
+.form_control input{
+    margin-left: 0.3rem;
 }
 
-h2{
+.form_control h2{
+    font-size: 14px;
     margin-right: 0.3rem;
 }
 

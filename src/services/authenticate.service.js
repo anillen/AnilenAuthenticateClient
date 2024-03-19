@@ -1,10 +1,8 @@
-import axios from "axios"
+import axiosService from "./axios.service";
 
 class AuthenticateService {
-    #BASE_URL = 'https://localhost:7002';
-
     async login(loginData) {
-        return axios.post(`${this.#BASE_URL}/authenticate/login `, loginData);
+        return await axiosService.axios.post(`/authentication/login `, loginData);
     }
 }
 

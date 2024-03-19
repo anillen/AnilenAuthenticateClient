@@ -1,36 +1,81 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./Login.module.css";
 import UsernameForm from "./UsernameForm";
 import PasswordForm from "./PasswordForm";
-import useAuthenticate from "../../hooks/useAuthenticate";
 import { useNavigate } from "react-router-dom";
+import authenticateService from "../../services/authenticate.service";
+import { useMutation } from "@tanstack/react-query";
+import Loader from "../../components/UI/Loader/Loader";
+import useAuthenticate from "../../hooks/useAuthenticate";
 
 export default function Login() {
-  const [formState, setFormState] = useState("username");
-  const authenticateContext = useAuthenticate();
+  const [formState, setFormState] = useState(0);
+  const [loginData, setLoginData] = useState({ userName: "", password: "" });
+  const [error, setError] = useState("");
   const navigate = useNavigate();
+  const authenticateContext = useAuthenticate();
+
+  useEffect(() => {
+    const tokenData = {};
+    tokenData.token = localStorage.getItem("access_token");
+    tokenData.expiresTo = new Date(
+      localStorage.getItem("access_token_expires")
+    );
+    if (tokenData.token) {
+      authenticateContext.setIsAuthenticate(true);
+      navigate("/");
+    }
+  }, []);
+
+  //Request login
+  const fetchData = useMutation({
+    mutationFn: (loginData) => {
+      return authenticateService.login(loginData);
+    },
+    mutationKey: "acces_token",
+    onSuccess: (data) => {
+      localStorage.setItem("access_token", data.accessToken);
+      localStorage.setItem("access_token_expires", data.expiresTo);
+      navigate("/");
+    },
+    onError: (error) => {
+      setError("Incorrect username or password");
+      setFormState(0);
+      setLoginData({ userName: "", password: "" });
+    },
+  });
 
   const usernameSubmitHandler = (e) => {
     e.preventDefault();
-    setFormState('password');
+    setFormState(1);
   };
 
   const passwordSubmitHandler = (e) => {
     e.preventDefault();
-    authenticateContext.setIsAuthenticate(true);
-    navigate('/');
+    fetchData.mutate(loginData);
   };
 
-  if (formState == "username") {
+  if (fetchData.isPending) return <Loader />;
+
+  if (formState == 0) {
     return (
       <div className={styles.container}>
-        <UsernameForm submitHandler={usernameSubmitHandler} />
+        <UsernameForm
+          loginData={loginData}
+          setLoginData={setLoginData}
+          submitHandler={usernameSubmitHandler}
+          error={error}
+        />
       </div>
     );
   } else {
     return (
       <div className={styles.container}>
-        <PasswordForm submitHandler={passwordSubmitHandler} />
+        <PasswordForm
+          loginData={loginData}
+          setLoginData={setLoginData}
+          submitHandler={passwordSubmitHandler}
+        />
       </div>
     );
   }
