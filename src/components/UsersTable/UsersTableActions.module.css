@@ -4,6 +4,9 @@
     justify-content: space-between;
     width: calc(100% - 50px);
 }
+.container button{
+    margin-right: 0.3rem;
+}
 .buttonsContainer{
     display: flex;
 }

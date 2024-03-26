@@ -16,24 +16,21 @@ export default function Login() {
   const authenticateContext = useAuthenticate();
 
   useEffect(() => {
-    const tokenData = {};
-    tokenData.token = localStorage.getItem("access_token");
-    tokenData.expiresTo = new Date(
-      localStorage.getItem("access_token_expires")
-    );
-    if (tokenData.token) {
+    const token = localStorage.getItem("access_token");
+    if (token) {
       authenticateContext.setIsAuthenticate(true);
       navigate("/");
     }
   }, []);
 
+  
   //Request login
   const fetchData = useMutation({
     mutationFn: (loginData) => {
       return authenticateService.login(loginData);
     },
-    mutationKey: "acces_token",
-    onSuccess: (data) => {
+    mutationKey: "access_token",
+    onSuccess: ({data}) => {
       localStorage.setItem("access_token", data.accessToken);
       localStorage.setItem("access_token_expires", data.expiresTo);
       navigate("/");
