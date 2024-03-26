@@ -3,6 +3,7 @@ services:
   client:
     image: anilen_authenticate_client
     build:
+      context: .
       dockerfile: Dockerfile
     container_name: anilen_authentication_client
     ports:
