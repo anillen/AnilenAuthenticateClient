@@ -1,7 +1,7 @@
 FROM node:17-alpine
 WORKDIR /app
-COPY package.json .
+COPY package.json /app/package.json
 RUN npm install
-COPY . .
+COPY . /app
 EXPOSE 80
-CMD ["npm", "run dev"]
+RUN npm run dev
