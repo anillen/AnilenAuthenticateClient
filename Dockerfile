@@ -1,7 +1,20 @@
-FROM node:17-alpine
+FROM node:17-alpine as builder
+
 WORKDIR /app
-COPY package.json /app/package.json
-RUN npm install
-COPY . /app
+
+COPY package.json ./
+COPY package-lock.json ./
+
+RUN npm install --production
+
+COPY ./ ./
+
+RUN npm run build
+
+FROM nginx:stable-alpine AS web-server
+
 EXPOSE 80
-RUN npm start
+
+COPY --from=build /app/build /usr/share/nginx/html
+
+COPY /nginx.conf  /etc/nginx/conf.d/default.conf
