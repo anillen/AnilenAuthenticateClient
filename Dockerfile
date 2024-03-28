@@ -10,8 +10,9 @@ COPY . .
 
 ARG APP_STAGE
 ARG PULIC_URL
+ENV PUBLIC_URL $PULIC_URL
 
-RUN PUBLIC_URL=$PUBLIC_URL npm run build
+RUN npm run build
 
 FROM nginx:stable-alpine
 
