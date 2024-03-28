@@ -8,7 +8,9 @@ RUN npm install
 
 COPY . .
 
-RUN npm run build
+ARG APP_STAGE
+
+RUN npm run build ${APP_STAGE}
 
 FROM nginx:stable-alpine
 
