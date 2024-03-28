@@ -6,6 +6,8 @@ services:
       context: .
       dockerfile: Dockerfile
     container_name: anilen_authenticate_client
+    environment:
+      - BASE_URL= http://rado.invest.lan/login
     ports:
       - '8001:80'
     restart: always
