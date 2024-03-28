@@ -8,5 +8,9 @@ dotenv.config();
 export default defineConfig({
   plugins: [react()],
   base: process.env.BASE_URL,
-  publicDir: './',
+  server:{
+    host: true,
+    port: 5001,
+    strictPort: true,
+  }
 })

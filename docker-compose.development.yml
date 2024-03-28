@@ -7,7 +7,7 @@ services:
       dockerfile: Dockerfile
       args:
         APP_STAGE: development
-
+        PUBLIC_URL: /authserver
     container_name: anilen_authenticate_client
     ports:
       - '8001:80'

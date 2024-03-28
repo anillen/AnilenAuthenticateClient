@@ -9,8 +9,9 @@ RUN npm install
 COPY . .
 
 ARG APP_STAGE
+ARG PULIC_URL
 
-RUN npm run build-$APP_STAGE
+RUN PUBLIC_URL=$PUBLIC_URL npm run build
 
 FROM nginx:stable-alpine
 
