@@ -5,12 +5,13 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+      args:
+        APP_STAGE: development
+
     container_name: anilen_authenticate_client
     ports:
       - '8001:80'
     restart: always
-    args:
-      APP_STAGE: development
 
 networks:
   default:
