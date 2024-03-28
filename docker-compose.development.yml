@@ -9,8 +9,8 @@ services:
     ports:
       - '8001:80'
     restart: always
-    environment:
-      - APP_STAGE=development
+    args:
+      APP_STAGE: development
 
 networks:
   default:
