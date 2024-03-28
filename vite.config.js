@@ -8,4 +8,5 @@ dotenv.config();
 export default defineConfig({
   plugins: [react()],
   base: process.env.BASE_URL,
+  publicDir: './',
 })
