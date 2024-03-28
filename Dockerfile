@@ -12,7 +12,7 @@ ARG APP_STAGE
 ARG PUBLIC_URL
 ENV PUBLIC_URL $PUBLIC_URL
 
-RUN PUBLIC_URL=$PUBLIC_URL npm run build-development
+RUN npm run build-development PUBLIC_URL=$PUBLIC_URL
 
 FROM nginx:stable-alpine
 
