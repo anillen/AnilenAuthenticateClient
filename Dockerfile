@@ -10,7 +10,7 @@ COPY . .
 
 ARG APP_STAGE
 
-RUN npm run build ${APP_STAGE}
+RUN npm run build --mode ${APP_STAGE}
 
 FROM nginx:stable-alpine
 
