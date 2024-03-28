@@ -6,7 +6,7 @@ import { routes } from "./pages/routes.jsx";
 import AuthenticateContextProvider from "./store/AuthenticateContext/AuthenticateContextProvider.jsx";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
-const router = createBrowserRouter(routes);
+const router = createBrowserRouter(routes, {basename:import.meta.env.BASE_URL});
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {

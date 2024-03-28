@@ -11,7 +11,7 @@ import UserGroups from "./UserGroups/UserGroups";
 
 export const routes = [
     {
-      path:`${process.env.POSTFIX}/`,
+      path:"/",
       element:<Layout/>,
       errorElement:<ErrorPage/>,
       children: [
@@ -53,7 +53,7 @@ export const routes = [
       ]
     },
     {
-      path:`${process.env.POSTFIX}/login`,
+      path:"/login",
       errorElement:<ErrorPage/>,
       element:<Login/>
     }

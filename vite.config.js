@@ -12,5 +12,5 @@ export default defineConfig({
     outDir: 'dist',
   },
   publicDir: 'assets',
-  base: process.env.BASE_URL + process.env.POSTFIX
+  base: process.env.BASE_URL,
 })
